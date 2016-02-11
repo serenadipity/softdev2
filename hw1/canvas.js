@@ -1,4 +1,9 @@
-/* Javascript for Canvas, Serena Chan Pd 6 */
+/* 
+Serena Chan
+SoftDev2 Pd 6
+HW#1 -- Finding Your Path Around the Canvas
+2016-2-10
+*/
 
 var c = document.getElementById("ftb2maga");
 var ctx = c.getContext("2d");
