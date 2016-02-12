@@ -33,11 +33,12 @@ var dots = function dots(e) {
 	ctx.beginPath();
 	ctx.moveTo(x,y);
 	ctx.arc(x,y,10,0,2*Math.PI);
+	ctx.fill();
 	if (prevX != null) {
 		ctx.lineTo(prevX,prevY);
 	}
 	ctx.stroke();
-	ctx.fill();
+	//ctx.fill();
 	prevX = x;
 	prevY = y;
 	ctx.closePath();
