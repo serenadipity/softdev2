@@ -24,7 +24,6 @@ var dots = function dots(e) {
     ctx.fill();
     if (prevX != null) {
 	ctx.lineTo(prevX,prevY);
-	
     }
     ctx.stroke();
     prevX = x;
