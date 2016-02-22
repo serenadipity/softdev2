@@ -15,7 +15,7 @@ ctx.strokeRect(10,10,520,520);
 var prevX;
 var prevY;
 
-var drawDot = function drawDot(e) {
+var circle = function circle(e) {
     ctx.beginPath();
     ctx.moveTo(x,y);
 /*
@@ -37,4 +37,6 @@ clear.addEventListener("click", function(e){
     prevX = null;
 })
 
-dotButton.addEventListener("click", drawDot);
+c.addEventListener("click",function(e) {
+    circle(e);
+});
