@@ -1,7 +1,7 @@
 /* 
    Serena Chan
    SoftDev2 Pd 6
-   HW#3 -- !
+   HW#3 -- DVD!
    2016-2-10
 */
 
@@ -43,7 +43,44 @@ var stop = function stop(e) {
     window.cancelAnimationFrame(frameID);
 }
 
+var x;
+var y;
+var right = false;
+var left = false;
+var top = false;
+var bottom = false;
+
+var dvd = function dvd(e) {
+    ctx.clearRect(1,1,c.width-2,c.height-2);
+    x = c.width/2;
+    y = c.height/2;
+    var logo = new Image();
+    logo.src = "logo_dvd.jpg";
+    ctx.beginPath();
+    ctx.drawImage(logo,x,y,100,75);
+    if (bottom) {
+	y = y + 1;
+	top = false;
+    }
+    if (left) {
+	x = x + 1;
+    }
+    if (right) {
+	x = x - 1;
+    }
+    if (top) {
+	y = y - 1;
+	bottom = false;
+    }
+    
+
+}
+
 dotButton.addEventListener("click", drawDot);
 stopButton.addEventListener("click", stop);
+dvdButton.addEventListener("click", dvd);
 
+//var logo = newImage();
+//logo.src = "filename";
+//ctx.drawImage(logo,x,y,w,h);
 
