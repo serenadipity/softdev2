@@ -5,36 +5,38 @@
    2016-2-10
 */
 
-var c = document.getElementById("playground");
+var c = document.getElementById("dotanim");
 var ctx = c.getContext("2d");
 
 ctx.fillStyle= "#000066";
 ctx.strokeStyle = "#000000";
-ctx.strokeRect(10,10,520,520);
+ctx.strokeRect(0,0,c.width,c.height);
 
-var prevX;
-var prevY;
+var g = true;
+var r = 0;
 
 var drawDot = function drawDot(e) {
-    ctx.beginPath();
-    ctx.moveTo(x,y);
-/*
-    ctx.arc(x,y,10,0,2*Math.PI);
-    ctx.fill();
-    if (prevX != null) {
-	ctx.lineTo(prevX,prevY);
+    ctx.clearRect(1,1,c.width-2,c.height-2);
+    if (r==(c.width/2)) {
+      g = false;
     }
-    ctx.stroke();
-    prevX = x;
-    prevY = y;
-*/
-    ctx.closePath();
-}
+    else if (r==0) {
+      g = true;
+    }
 
-clear.addEventListener("click", function(e){
-    e.preventDefault();
-    ctx.clearRect(10,10,520,520);
-    prevX = null;
-})
+    ctx.beginPath();
+    ctx.arc(c.width/2, c.height/2,r,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fill();
+
+    if (g) {
+      r = r + 1;
+    }
+    else {
+      r = r -1;
+    }
+    
+    window.requestAnimationFrame(drawDot);
+}
 
 dotButton.addEventListener("click", drawDot);
