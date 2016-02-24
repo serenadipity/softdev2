@@ -52,9 +52,6 @@ var bottom = false;
 
 var dvd = function dvd(e) {
 
-  //y--;
-  //console.log(y);
-
   ctx.clearRect(1,1,c.width-2,c.height-2);
   var logo = new Image();
   logo.src = "logo_dvd.jpg";
