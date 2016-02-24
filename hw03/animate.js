@@ -43,44 +43,67 @@ var stop = function stop(e) {
     window.cancelAnimationFrame(frameID);
 }
 
-var x;
-var y;
+var x = c.width/2;
+var y = c.height/2;
 var right = false;
 var left = false;
 var top = false;
 var bottom = false;
 
 var dvd = function dvd(e) {
-    ctx.clearRect(1,1,c.width-2,c.height-2);
-    x = c.width/2;
-    y = c.height/2;
-    var logo = new Image();
-    logo.src = "logo_dvd.jpg";
-    ctx.beginPath();
-    ctx.drawImage(logo,x,y,100,75);
-    if (bottom) {
-	y = y + 1;
-	top = false;
-    }
-    if (left) {
-	x = x + 1;
-    }
-    if (right) {
-	x = x - 1;
-    }
-    if (top) {
-	y = y - 1;
-	bottom = false;
-    }
-    
 
+  //y--;
+  //console.log(y);
+
+  ctx.clearRect(1,1,c.width-2,c.height-2);
+  var logo = new Image();
+  logo.src = "logo_dvd.jpg";
+  ctx.beginPath();
+  ctx.drawImage(logo,x,y,100,75);
+
+  if (x >= (c.width-101)) {
+    right = true;
+    left = false;
+  }
+
+  if (x <= 1) {
+    right = false;
+    left = true;
+  }
+
+  if (y >= (c.height-76)) {
+    bottom = true;
+    top = false;
+  }
+
+  if (y <= 1) {
+    top = true;
+    bottom = false;
+  }
+
+  if (left) {
+    x = x + 1;
+  }
+  else if (right) {
+    x = x - 1;
+  }
+  else {
+    x++;
+  }
+  if (bottom) {
+    y--;
+  }
+  else if (top) {
+    y++;
+  }
+  else {
+    y++;
+  }
+    
+  frameID = window.requestAnimationFrame(dvd);
 }
 
 dotButton.addEventListener("click", drawDot);
 stopButton.addEventListener("click", stop);
 dvdButton.addEventListener("click", dvd);
-
-//var logo = newImage();
-//logo.src = "filename";
-//ctx.drawImage(logo,x,y,w,h);
 
