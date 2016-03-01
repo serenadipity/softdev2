@@ -41,6 +41,8 @@ var grow = function() {
 	c = document.getElementByTagName("circle")[0];
 	radius = parseInt(c.getAttribute("r"));
 	c.setAttribute("r",radius.toString());
+	//where to put this?
+	intervalID = window.setInterval(animateCode,16);
     }
 }
 
