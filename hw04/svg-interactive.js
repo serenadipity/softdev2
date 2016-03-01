@@ -7,11 +7,6 @@ var change = function(e) {
 /*
 var c = document.createElementNS(
 "http://www.w3.org/2000/svg", "circle");
-c.setAttribute("cx", 250);
-c.setAttribute("cy", 250);
-c.setAttribute("r","75");
-c.setAttribute("fill","red");
-//c.setAttribute("stroke","black");
 
 pic.appendChild(c);
 */
@@ -35,3 +30,20 @@ var clicked = function(e) {
 };
 
 pic.addEventListener("click", clicked);
+
+
+var intevalID;
+
+var grow = function() {
+    //init statements
+    var c = document.createElementNS(svgNSID,"circle");
+    var animateCode = function() {
+	c = document.getElementByTagName("circle")[0];
+	radius = parseInt(c.getAttribute("r"));
+	c.setAttribute("r",radius.toString());
+    }
+}
+
+var stop = function() {
+    window.clearInterval(intervalID);
+}
