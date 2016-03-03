@@ -5,12 +5,6 @@ var change = function(e) {
 };
 
 /*
-var c = document.createElementNS(
-"http://www.w3.org/2000/svg", "circle");
-
-pic.appendChild(c);
-*/
-
 var drawDot = function (x,y) {
 var c = document.createElementNS(
 "http://www.w3.org/2000/svg", "circle");
@@ -31,17 +25,35 @@ var clicked = function(e) {
 
 pic.addEventListener("click", clicked);
 
-
-var intevalID;
+*/
+var intervalID;
 
 var grow = function() {
     //init statements
-    var c = document.createElementNS(svgNSID,"circle");
+    var c = document.createElementNS(
+    "http://www.w3.org/2000/svg", "circle");
+    c.setAttribute("cx", x);
+    c.setAttribute("cy", y);
+    c.setAttribute("r", "30");
+    c.setAttribute("fill", "red");
+    pic.appendChild(c);
+    console.log("hi");
     var animateCode = function() {
 	c = document.getElementByTagName("circle")[0];
 	radius = parseInt(c.getAttribute("r"));
-	c.setAttribute("r",radius.toString());
-	//where to put this?
+	c.setAttribute("r",r);
+    if (grow==true){
+        r++;
+    }else{
+        r--;
+    }
+    if (r>=c.width/2){
+        grow=false;
+    }else{
+        if (r<=0){
+            grow=true;
+        }
+    }
 	intervalID = window.setInterval(animateCode,16);
     }
 }
