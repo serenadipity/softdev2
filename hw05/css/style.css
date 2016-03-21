@@ -1,1 +1,30 @@
 /*CSS Stylesheet*/
+
+.chart div{
+  font: 20px sans-serif;
+  color: black;
+  margin: 1px;
+  text-align: right;
+  padding: 3px;
+  white-space: nowrap;
+}
+.allocated {
+  height: 20px;
+  width: 50px;
+  background-color: lightgreen;
+  display: inline-block;
+}
+.unallocated {
+  height: 20px;
+  width: 50px;
+  background-color: pink;
+  display: inline-block;
+}
+.key {
+	position: fixed;
+	left: 500px;
+  margin-bottom: 40px;
+  border: 1px solid black;
+  width: 265px;
+  text-align: center;
+}
