@@ -1,0 +1,2 @@
+def union(a,b):
+    return [x for x in a and x in b]
