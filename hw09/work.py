@@ -20,3 +20,21 @@ def cartesian(a,b):
 
 d = log(cartesian)
 print d([1, 2], ["red","white"])
+
+#####################################################################
+
+#a simple example of applying multiple decorators
+def make_bold(fn):
+    return lambda : "<b>" + fn() + "</b>"
+
+def make_italic(fn):
+    return lambda : "<i>" + fn() + "</i>"
+
+@make_bold
+@make_italic
+def hello():
+    return "hello world"
+
+helloHTML = hello()
+
+print helloHTML
