@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %} Parent Teacher Conflict {% endblock %}
+
+{% block contents %}
+
+<body class="home">
+  <div id="title">
+    <div class="jumbotron" id="slight_right">
+      <h1 class="center">Parent-Teacher</h1>
+      <h1 class="center">Conflict</h1>
+    </div>
+  </div>
+  
+  <div id="homebuttons">
+    
+    <div class="btn-group btn-space">
+      <a href="#" data-toggle="modal" data-target="#aboutpage"><button class="btn btn-primary btn-lg" type="button">About</button></a>
+    </div>     
+
+    <div class="btn-group btn-space">
+      <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Parent <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+	<li><a href="/parentcreate">Signup</a></li>
+	<li><a href="/parentlogin">Login</a></li>
+      </ul>
+    </div>
+    
+    <div class="btn-group">
+      <button class="btn btn-danger btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Teacher <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+	<li><a href="/teachercreate">Signup</a></li>
+	<li><a href="/teacherlogin">Login</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+<div class="modal fade" id="aboutpage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1 class="modal-title" id="myModalLabel">About</h1>
+      </div>
+      <div class="modal-body">
+        <p><b>By Serena Chan, Peter Strbik, Sammi Wu, and Dillon Zhang</b></p>
+        <p> Parent Teacher Conflict is an efficient system that both parents and teachers can use to easily schedule appointments. </p>
+	<p> Source code <a href="https://github.com/serenadipity/Parent-Teacher-Conflict">here</a>.</p>
+	<p>Icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></p>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Go Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+{% endblock %}

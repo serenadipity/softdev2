@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %} Selection Schedule {% endblock %}
+
+{% block contents %}
+<body background="static/imgs/chalkboard.jpg">
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+          <div style="font-family:chalkboard; color:white;">
+	    <ul class="nav navbar-nav">
+              <li><a = href="/"><b>PTC</b></a></li>
+	    </ul>
+	    
+          </div>
+      </div>
+  </nav>
+  
+<br><br><br><br>
+
+<div class="container">
+  <center>
+  <table id="outer">
+    <tr>
+      <td class="bg1" id="outer_bg1" style="font-family:chalktwo; color:white;">
+        <h3><u> Welcome Parent! </u></h3>
+	<p> Choose a Date to View Your Appointments: </p>
+        <form method="POST" action="parentschedule">
+	    <input type="date" name="date" id="black" min="2016/01/01" max="2020/12/31" placeholder="YYYY/MM/DD">
+	    <input id="black" type="submit" value="View">
+	</form>
+	{% if view %}
+	<a class="btn btn-success" href="/parentselect">Click Here to Add an Appointment</a>
+	{% endif %}
+      </td>
+      <td rowspan="2" class="bg2" id="outer_bg1" style="font-family:chalktwo; color:white;">
+        <div class="form-group">
+          <h3><u>{{title}}</u></h3>
+	  {% if view == False %}
+          {% if step == 0 %}
+	  <p> Choose a Date and School</p>
+          <form role="form" id="black" method="POST" action="findTeachers">
+	    <div class="form-group">
+	      <input type="date" name="date" id="black" min="2016/01/01" max="2020/12/31" placeholder="YYYY/MM/DD">
+	    </div>
+	    <div class="form-group">
+	      <select id="school" name="school" tabindex="5" required>
+		<option value="Select School" selected disabled>Select School</option>
+		{% for school in schools %}
+		<option value={{school}}>{{school}}</option>
+		{% endfor %}
+	      </select>
+	    </div>
+	    <div>
+	      <input id="black"type="submit" value="Submit"></input>
+	    </div>
+	  </form>
+	  {% endif %}
+	  
+	  {% if step == 1 %}
+	  <form method="POST" action="findAppointments">
+	    {% for teacher in teachers %}
+	    <input type="checkbox" name="teachers" value={{teacher[0]}}>{{teacher[1]}} {{teacher[2]}}<br>
+	    {% endfor %}
+	    <input id="black" type="submit" value="Submit">
+	  </form>
+	  {% endif %}
+	      
+	  {% if step == 2 %}
+	  <form method="POST" action="parentScheduleAppointments">
+	    {{appointments | safe }}
+	  </form>
+	  {% endif %}
+	  {% endif %}
+	  
+	  {% if view %}
+	  {{appointment | safe }}
+	  {% endif %}
+	</div>
+      </td>
+    </tr>
+  </table>
+</center>
+</div>
+</body>
+
+{% endblock %}
+
